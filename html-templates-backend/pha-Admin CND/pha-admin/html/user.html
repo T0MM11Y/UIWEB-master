@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+  <title>pha-Admin</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/bootstrap-maizi.css"/>
+  <link rel="stylesheet" href="css/content-style.css"/>
+  <link rel="stylesheet" href="css/mricode.pagination.css"/>
+  <link rel="stylesheet" href="css/jquery.fancybox.css"/>
+  <link rel="stylesheet" href="css/sweetalert.css"/>
+</head>
+<body>
+<!--导航-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <!--小屏幕导航按钮和logo-->
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="index.html" class="navbar-brand"> pha-Admin</a>
+    </div>
+    <!--小屏幕导航按钮和logo-->
+    <!--导航-->
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;后台首页</a></li>
+        <li class="active"><a href="user.html"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户管理</a></li>
+        <li><a href="machine.html"><span class="glyphicon glyphicon-expand"></span>&nbsp;&nbsp;机器管理</a></li>
+        <li><a href="service.html"><span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;服务管理</a></li>
+        <li><a href="log.html"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;日志管理</a></li>
+        <li><a href="wiki.html"><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;使用文档</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            admin
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dLabel">
+            <li><a href="index.html"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;个人设置</a></li>
+          </ul>
+        </li>
+        <li><a href="#bbs"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a></li>
+      </ul>
+    </div>
+    <!--导航-->
+  </div>
+</nav>
+<!--导航-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel-body" style="padding: 15px 0;">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="user.html">用户列表</a></li>
+          <li class=""><a href="user_form.html">添加用户</a></li>
+        </ul>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <form>
+            <div class="col-md-3 col-lg-offset-9">
+              <div class="input-group">
+                <input class="form-control" type="text" value="" placeholder="用户名" name="keyword">
+                  <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button>
+                  </span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th class="w8p">id</th>
+              <th class="w18p">用户名</th>
+              <th class="w18p">邮箱</th>
+              <th class="w13p">手机</th>
+              <th class="w10p">角色</th>
+              <th class="w15p">创建时间</th>
+              <th class="w15p">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="center">1</td>
+              <td>phachon</td>
+              <td>phachon@163.com</td>
+              <td>12345678965</td>
+              <td class="center">系统管理员</td>
+              <td class="center">2017-03-28 12:21:09</td>
+              <td class="center"><a name="remove" onclick="Common.confirm('确认要屏蔽吗？')"><i class="glyphicon glyphicon-remove"></i>屏蔽</a></td>
+            </tr>
+            <tr>
+              <td class="center">2</td>
+              <td>Jacob</td>
+              <td>Thornton@</td>
+              <td>1234567</td>
+              <td class="center">系统管理员</td>
+              <td class="center">2017-03-28 12:21:09</td>
+              <td class="center"><a name="remove" onclick="Common.confirm('确认要屏蔽吗？')"><i class="glyphicon glyphicon-remove"></i>屏蔽</a></td>
+            </tr>
+            <tr>
+              <td class="center">3</td>
+              <td>Larry</td>
+              <td>theBird@</td>
+              <td>234567890</td>
+              <td class="center">系统管理员</td>
+              <td class="center">2017-03-28 12:21:09</td>
+              <td class="center">
+                <a name="remove" onclick="Common.confirm('确认要屏蔽吗？')"><i class="glyphicon glyphicon-remove"></i>屏蔽</a>
+                <a name="regain" onclick="Common.confirm('确认要恢复吗？')"><i class="glyphicon glyphicon-ok"></i>恢复</a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-8 m-pagination" id="paginator">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--footer-->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-muted center">
+          Copyright&nbsp;©&nbsp;2017-2018&nbsp;&nbsp;phachon@163.com&nbsp;&nbsp;
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!--footer-->
+<script src="js/plugins/jquery/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/pagination/mricode.pagination.js"></script>
+<script src="js/plugins/fancybox/jquery.fancybox.js"></script>
+<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/module/account.js"></script>
+<script type="text/javascript">
+  var pageData = [];
+  pageData.push({'pageSize': '10', 'total': '1000', 'pageIndex': '2'});
+  Common.paginator("#paginator", pageData);
+  Account.bindFancyBox();
+</script>
+</body>
+</html>

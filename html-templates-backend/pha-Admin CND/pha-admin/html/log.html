@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+    <title>PMQ服务</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-maizi.css"/>
+    <link rel="stylesheet" href="css/content-style.css"/>
+    <link rel="stylesheet" href="css/mricode.pagination.css"/>
+</head>
+<body>
+<!--导航-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <!--小屏幕导航按钮和logo-->
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="index.html" class="navbar-brand"> pha-Admin</a>
+        </div>
+        <!--小屏幕导航按钮和logo-->
+        <!--导航-->
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;后台首页</a></li>
+                <li><a href="user.html"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户管理</a></li>
+                <li><a href="machine.html"><span class="glyphicon glyphicon-expand"></span>&nbsp;&nbsp;机器管理</a></li>
+                <li><a href="service.html"><span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;服务管理</a></li>
+                <li  class="active"><a href="log.html"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;日志管理</a></li>
+                <li><a href="wiki.html"><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;使用文档</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        admin
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dLabel">
+                        <li><a href="index.html"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;个人设置</a></li>
+                    </ul>
+                </li>
+                <li><a href="#bbs"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a></li>
+            </ul>
+        </div>
+        <!--导航-->
+    </div>
+</nav>
+<!--导航-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel-body" style="padding: 15px 0;">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="log.html">系统日志</a></li>
+                    <li><a href="log.html">错误日志</a></li>
+                    <li><a href="log.html">调试日志</a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <form>
+                      <div class="col-md-4">
+                        <div class="input-group">
+                          <div class="btn-group">
+                            <a type="button" class="btn btn-default disabled" href="javascript:;">日志条数</a>
+                            <button type="button" class="btn btn-default active">20</button>
+                            <button type="button" class="btn btn-default">50</button>
+                            <button type="button" class="btn btn-default">80</button>
+                            <button type="button" class="btn btn-default">100</button>
+                            <a type="button" class="btn btn-default disabled" href="javascript:;">条</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-2">
+                      </div>
+                      <div class="col-md-3"></div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <input class="form-control" type="text" value="" placeholder="搜索" name="keyword">
+                                  <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button>
+                                  </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th class="w13p">时间</th>
+                            <th class="w10p">消息</th>
+                            <th>任务</th>
+                            <th class="w8p">结果</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="center">2017-03-17 08:00:45</td>
+                            <td class="center">video</td>
+                            <td>http://test.com/video/callback</td>
+                            <td class="center"><span class="label label-success">成功</span></td>
+                        </tr>
+                        <tr>
+                            <td class="center">2017-03-17 08:00:45</td>
+                            <td class="center">new</td>
+                            <td>http://test.com/new/callback</td>
+                            <td class="center"><span class="label label-success">成功</span></td>
+                        </tr>
+                        <tr>
+                            <td class="center">2017-03-17 08:00:45</td>
+                            <td class="center">stream</td>
+                            <td>http://test.com/video/callback</td>
+                            <td class="center"><span class="label label-danger">失败</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-8 m-pagination" id="paginator">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--footer-->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-muted center">
+                    Copyright&nbsp;©&nbsp;2017-2018&nbsp;&nbsp;phachon@163.com&nbsp;&nbsp;
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--footer-->
+<script src="js/plugins/jquery/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/pagination/mricode.pagination.js"></script>
+<script src="js/common/common.js"></script>
+<script type="text/javascript">
+    var pageData = [];
+    pageData.push({'pageSize': '10', 'total': '1000', 'pageIndex': '2'});
+    Common.paginator("#paginator", pageData);
+</script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+  <title>pha-Admin</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/bootstrap-maizi.css"/>
+  <link rel="stylesheet" href="css/content-style.css"/>
+  <link rel="stylesheet" href="css/mricode.pagination.css"/>
+  <link rel="stylesheet" href="css/jquery.fancybox.css"/>
+  <link rel="stylesheet" href="css/sweetalert.css"/>
+</head>
+<body>
+<!--导航-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <!--小屏幕导航按钮和logo-->
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="index.html" class="navbar-brand"> pha-Admin</a>
+    </div>
+    <!--小屏幕导航按钮和logo-->
+    <!--导航-->
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;后台首页</a></li>
+        <li><a href="user.html"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户管理</a></li>
+        <li><a href="machine.html"><span class="glyphicon glyphicon-expand"></span>&nbsp;&nbsp;机器管理</a></li>
+        <li class="active"><a href="service.html"><span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;服务管理</a></li>
+        <li><a href="log.html"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;日志管理</a></li>
+        <li><a href="wiki.html"><span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;使用文档</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            admin
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dLabel">
+            <li><a href="index.html"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;个人设置</a></li>
+          </ul>
+        </li>
+        <li><a href="#bbs"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a></li>
+      </ul>
+    </div>
+    <!--导航-->
+  </div>
+</nav>
+<!--导航-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel-body" style="padding: 15px 0;">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="">服务列表</a></li>
+          <li><a href="service_form.html">添加服务</a></li>
+        </ul>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <form>
+            <div class="col-md-2">
+              <div class="form-group text-left">
+                <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-refresh"></i> 重载服务</button>
+              </div>
+            </div>
+            <div class="col-md-7"></div>
+            <div class="col-md-3">
+              <div class="input-group">
+                <input class="form-control" type="text" value="" placeholder="服务名称" name="keyword">
+                  <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button>
+                  </span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th class="w5p">id</th>
+              <th class="w10p">服务名称</th>
+              <th class="w10p">数据源</th>
+              <th class="w10p">数据源类型</th>
+              <th class="w10p">数据源个数</th>
+              <th class="w10p">状态</th>
+              <th class="w15p">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="center">1</td>
+              <td class="center">视频索引</td>
+              <td class="center">video</td>
+              <td class="center"><a data-link="message_consumer.html" name="source_info">mysql</a></td>
+              <td class="center">32</td>
+              <td class="center"><span class="label label-success">运行中</span></td>
+              <td class="center">
+                <a data-link="service_config.html" name="consumer_list"><i class="glyphicon glyphicon-cog"></i> 配置</a>
+                <a data-link="message_consumer.html" name="consumer_list"><i class="glyphicon glyphicon-off"></i> 重启</a>
+                <a data-link="message_edit.html" name="edit"><i class="glyphicon glyphicon-pencil"></i> 修改</a>
+                <a onclick="Common.confirm('确定要删除吗？')"><i class="glyphicon glyphicon-remove"></i> 删除</a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-8 m-pagination" id="paginator">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--footer-->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-muted center">
+          Copyright&nbsp;©&nbsp;2017-2018&nbsp;&nbsp;phachon@163.com&nbsp;&nbsp;
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!--footer-->
+<script src="js/plugins/jquery/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/pagination/mricode.pagination.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/plugins/fancybox/jquery.fancybox.js"></script>
+<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/module/message.js"></script>
+<script type="text/javascript">
+  var pageData = [];
+  pageData.push({'pageSize': '10', 'total': '1000', 'pageIndex': '2'});
+  Common.paginator("#paginator", pageData);
+
+  Messsage.bindFancyBox();
+</script>
+</body>
+</html>

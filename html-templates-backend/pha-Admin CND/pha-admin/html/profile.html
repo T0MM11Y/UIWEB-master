@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+  <title>PMQ服务</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/bootstrap-maizi.css"/>
+  <link rel="stylesheet" href="css/content-style.css"/>
+  <link rel="stylesheet" href="css/mricode.pagination.css"/>
+</head>
+<body>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-1 control-label"><span class="text-danger"> * </span>用户名</label>
+        <div class="col-sm-4">
+          <input type="text" name="username" class="form-control" placeholder="用户名" value="phachon" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-1 control-label"><span class="text-danger"> * </span>邮箱</label>
+        <div class="col-sm-4">
+          <input type="email" name="email" class="form-control" placeholder="邮箱" value="phachon@163.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-1 control-label">手机</label>
+        <div class="col-sm-4">
+          <input type="text" name="mobile" class="form-control" placeholder="手机" value="1257485978">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-1 control-label"><span class="text-danger"> * </span>角色</label>
+        <div class="col-sm-4">
+          <select class="form-control" name="role_id">
+            <option value="1">系统管理员</option>
+            <option value="2">管理员</option>
+            <option value="3">普通账号</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-1 control-label"><span class="text-danger"> * </span>密码</label>
+        <div class="col-sm-4">
+          <input type="password" class="form-control" placeholder="密码" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-10">
+          <button type="submit" onclick="" class="btn btn-success">保存</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <hr>
+</div>
+<!--footer-->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-muted center">
+          Copyright&nbsp;©&nbsp;2017-2018&nbsp;&nbsp;phachon@163.com&nbsp;&nbsp;
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!--footer-->
+<script src="js/plugins/jquery/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/pagination/mricode.pagination.js"></script>
+<script src="js/common/common.js"></script>
+</body>
+</html>

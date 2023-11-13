@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+  <title>PMQ服务</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <!--<link rel="stylesheet" href="css/bootstrap-maizi.css"/>-->
+  <link rel="stylesheet" href="css/content-style.css"/>
+</head>
+<body>
+<div class="panel panel-default">
+  <div class="panel-body"></div>
+  <div class="panel-body">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-2 control-label"><span class="text-danger"> * </span>消息名称</label>
+        <div class="col-sm-4">
+          <input type="text" name="name" class="form-control" placeholder="消息名称" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label"><span class="text-danger"> * </span>Exchange</label>
+        <div class="col-sm-4">
+          <select class="form-control" name="exchange">
+            <option value="topic">topic</option>
+            <option value="fanout">fanout</option>
+            <option value="direct">direct</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label"><span class="text-danger"> * </span>Token</label>
+        <div class="col-sm-4">
+          <input type="text" name="name" class="form-control" placeholder="Token" readonly>
+        </div>
+        <label class="col-sm-1 control-label"><button class="btn btn-xs btn-danger"> <span class="glyphicon glyphicon-refresh"></span> 重新生成 </button></label>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" onclick="" class="btn btn-success">保存</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="js/plugins/jquery/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

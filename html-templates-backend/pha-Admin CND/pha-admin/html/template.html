@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+  <title>PMQ服务</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/bootstrap-maizi.css"/>
+  <link rel="stylesheet" href="css/content-style.css"/>
+  <link rel="stylesheet" href="css/mricode.pagination.css"/>
+  <link rel="stylesheet" href="css/jquery.fancybox.css"/>
+  <link rel="stylesheet" href="css/sweetalert.css"/>
+</head>
+<body>
+<!--导航-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <!--小屏幕导航按钮和logo-->
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="index.html" class="navbar-brand"> PMQ服务 </a>
+    </div>
+    <!--小屏幕导航按钮和logo-->
+    <!--导航-->
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;后台首页</a></li>
+        <li><a href="user.html"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户管理</a></li>
+        <li><a href="message.html"><span class="glyphicon glyphicon-play-circle"></span>&nbsp;&nbsp;消息管理</a></li>
+        <li class="active"><a href="consumer.html"><span
+                class="glyphicon glyphicon-share-alt"></span>&nbsp;&nbsp;消费管理</a></li>
+        <li><a href="log.html"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;日志管理</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            admin
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dLabel">
+            <li><a href="index.html"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;个人设置</a></li>
+          </ul>
+        </li>
+        <li><a href="#bbs"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a></li>
+      </ul>
+    </div>
+    <!--导航-->
+  </div>
+</nav>
+<!--导航-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel-body" style="padding: 15px 0;">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="">消费列表</a></li>
+          <li><a href="consumer_form.html">添加消费者</a></li>
+        </ul>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <form>
+            <div class="col-md-4">
+              <div class="form-group text-left">
+                <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-refresh"></i> 重载服务</button>
+              </div>
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-2">
+              <div class="input-group">
+                <span class="input-group-addon">消息</span>
+                <select class="form-control" name="message_id">
+                  <option value="1">video</option>
+                  <option value="2">new</option>
+                  <option value="3">stream</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="input-group">
+                <input class="form-control" type="text" value="" placeholder="消费者名称" name="keyword">
+                  <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button>
+                  </span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th class="w8p">id</th>
+              <th class="w15p">名称</th>
+              <th>消费接口</th>
+              <th class="w8p">消息</th>
+              <th class="w8p">rout_key</th>
+              <th class="w8p">验证</th>
+              <th class="w8p">状态</th>
+              <th class="w11p">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="center">1</td>
+              <td>回调接口</td>
+              <td>http://test.com/video/callback</td>
+              <td class="center">video</td>
+              <td class="center">#</td>
+              <td class="center">是</td>
+              <td class="center"><span class="label label-danger">已停止</span></td>
+              <td class="center">
+                <a name="edit" data-link=""><i class="glyphicon glyphicon-pencil"></i>修改</a>
+                <a onclick="Common.confirm('确定删除吗？')"><i class="glyphicon glyphicon-remove"></i>删除</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="center">2</td>
+              <td>更新接口</td>
+              <td>http://test.com/video/update</td>
+              <td class="center">video</td>
+              <td class="center">#</td>
+              <td class="center">否</td>
+              <td class="center"><span class="label label-success">消费中</span></td>
+              <td class="center">
+                <a href=""><i class="glyphicon glyphicon-pencil"></i>修改</a>
+                <a onclick="Common.confirm('确定删除吗？')"><i class="glyphicon glyphicon-remove"></i>删除</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="center">3</td>
+              <td>操作接口</td>
+              <td>http://test.com/video/update</td>
+              <td class="center">New</td>
+              <td class="center">new.*</td>
+              <td class="center">是</td>
+              <td class="center"><span class="label label-success">消费中</span></td>
+              <td class="center">
+                <a href=""><i class="glyphicon glyphicon-pencil"></i>修改</a>
+                <a onclick="Common.confirm('确定删除吗？')"><i class="glyphicon glyphicon-remove"></i>删除</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="center">4</td>
+              <td>操作接口</td>
+              <td>http://test.com/video/update</td>
+              <td class="center">New</td>
+              <td class="center">*</td>
+              <td class="center">是</td>
+              <td class="center"><span class="label label-success">消费中</span></td>
+              <td class="center">
+                <a href=""><i class="glyphicon glyphicon-pencil"></i>修改</a>
+                <a onclick="Common.confirm('确定删除吗？')"><i class="glyphicon glyphicon-remove"></i>删除</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="center">5</td>
+              <td>操作接口</td>
+              <td>http://test.com/video/update</td>
+              <td class="center">New</td>
+              <td class="center">new</td>
+              <td class="center">否</td>
+              <td class="center"><span class="label label-success">消费中</span></td>
+              <td class="center">
+                <a href=""><i class="glyphicon glyphicon-pencil"></i>修改</a>
+                <a onclick="Common.confirm('确定删除吗？')"><i class="glyphicon glyphicon-remove"></i>删除</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="center">1</td>
+              <td>回调接口</td>
+              <td>http://test.com/video/callback</td>
+              <td class="center">video</td>
+              <td class="center">#</td>
+              <td class="center">是</td>
+              <td class="center"><span class="label label-danger">已停止</span></td>
+              <td class="center">
+                <a href=""><i class="glyphicon glyphicon-pencil"></i>修改</a>
+                <a onclick="Common.confirm('确定删除吗？')"><i class="glyphicon glyphicon-remove"></i>删除</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="center">2</td>
+              <td>更新接口</td>
+              <td>http://test.com/video/update</td>
+              <td class="center">video</td>
+              <td class="center">#</td>
+              <td class="center">否</td>
+              <td class="center"><span class="label label-success">消费中</span></td>
+              <td class="center">
+                <a href=""><i class="glyphicon glyphicon-pencil"></i>修改</a>
+                <a onclick="Common.confirm('确定删除吗？')"><i class="glyphicon glyphicon-remove"></i>删除</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="center">3</td>
+              <td>操作接口</td>
+              <td>http://test.com/video/update</td>
+              <td class="center">New</td>
+              <td class="center">new.*</td>
+              <td class="center">是</td>
+              <td class="center"><span class="label label-success">消费中</span></td>
+              <td class="center">
+                <a href=""><i class="glyphicon glyphicon-pencil"></i>修改</a>
+                <a onclick="Common.confirm('确定删除吗？')"><i class="glyphicon glyphicon-remove"></i>删除</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="center">4</td>
+              <td>操作接口</td>
+              <td>http://test.com/video/update</td>
+              <td class="center">New</td>
+              <td class="center">*</td>
+              <td class="center">是</td>
+              <td class="center"><span class="label label-danger">已停止</span></td>
+              <td class="center">
+                <a href=""><i class="glyphicon glyphicon-pencil"></i>修改</a>
+                <a onclick="Common.confirm('确定删除吗？')"><i class="glyphicon glyphicon-remove"></i>删除</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="center">5</td>
+              <td>操作接口</td>
+              <td>http://test.com/video/update</td>
+              <td class="center">New</td>
+              <td class="center">new</td>
+              <td class="center">否</td>
+              <td class="center"><span class="label label-success">消费中</span></td>
+              <td class="center">
+                <a href=""><i class="glyphicon glyphicon-pencil"></i>修改</a>
+                <a onclick="Common.confirm('确定删除吗？')"><i class="glyphicon glyphicon-remove"></i>删除</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="center">1</td>
+              <td>回调接口</td>
+              <td>http://test.com/video/callback</td>
+              <td class="center">video</td>
+              <td class="center">#</td>
+              <td class="center">是</td>
+              <td class="center"><span class="label label-success">消费中</span></td>
+              <td class="center">
+                <a href=""><i class="glyphicon glyphicon-pencil"></i>修改</a>
+                <a href=""><i class="glyphicon glyphicon-remove"></i>删除</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="center">2</td>
+              <td>更新接口</td>
+              <td>http://test.com/video/update</td>
+              <td class="center">video</td>
+              <td class="center">#</td>
+              <td class="center">否</td>
+              <td class="center"><span class="label label-danger">已停止</span></td>
+              <td class="center">
+                <a href=""><i class="glyphicon glyphicon-pencil"></i>修改</a>
+                <a href=""><i class="glyphicon glyphicon-remove"></i>删除</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="center">3</td>
+              <td>操作接口</td>
+              <td>http://test.com/video/update</td>
+              <td class="center">New</td>
+              <td class="center">new.*</td>
+              <td class="center">是</td>
+              <td class="center"><span class="label label-success">消费中</span></td>
+              <td class="center">
+                <a href=""><i class="glyphicon glyphicon-pencil"></i>修改</a>
+                <a href=""><i class="glyphicon glyphicon-remove"></i>删除</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="center">4</td>
+              <td>操作接口</td>
+              <td>http://test.com/video/update</td>
+              <td class="center">New</td>
+              <td class="center">*</td>
+              <td class="center">是</td>
+              <td class="center"><span class="label label-danger">已停止</span></td>
+              <td class="center">
+                <a href=""><i class="glyphicon glyphicon-pencil"></i>修改</a>
+                <a href=""><i class="glyphicon glyphicon-remove"></i>删除</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="center">5</td>
+              <td>操作接口</td>
+              <td>http://test.com/video/update</td>
+              <td class="center">New</td>
+              <td class="center">new</td>
+              <td class="center">否</td>
+              <td class="center"><span class="label label-success">消费中</span></td>
+              <td class="center">
+                <a href=""><i class="glyphicon glyphicon-pencil"></i>修改</a>
+                <a href=""><i class="glyphicon glyphicon-remove"></i>删除</a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-8 m-pagination" id="paginator">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--footer-->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-muted center">
+          Copyright&nbsp;©&nbsp;2017-2018&nbsp;&nbsp;phachon@163.com&nbsp;&nbsp;
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!--footer-->
+<script src="js/plugins/jquery/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/pagination/mricode.pagination.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/plugins/fancybox/jquery.fancybox.js"></script>
+<script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/module/consumer.js"></script>
+<script type="text/javascript">
+  var pageData = [];
+  pageData.push({'pageSize': '10', 'total': '1000', 'pageIndex': '2'});
+  Common.paginator("#paginator", pageData);
+
+  Consumer.bindFancyBox();
+</script>
+</body>
+</html>
