@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "840799430391",
+    "project_id": "absensi-d162b",
+    "storage_bucket": "absensi-d162b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840799430391:android:c8ca63a006baf17e3595f2",
+        "android_client_info": {
+          "package_name": "com.otodidak.absensi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtoli3rLnzT0x_ZEhjFSYADDDj-Ig4sGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
